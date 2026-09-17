@@ -10,13 +10,13 @@ public class Main {
         account = new CurrentAccount(102, "Kumar", 75000);
         account.displayDetails();
 
-        Payment payment = new UPIPayment();
-        payment.pay(1500);
-        ((SecurePayment) payment).verifyPayment();
+        Payment upi = new UPIPayment();
+        upi.pay(1500);
+        ((SecurePayment) upi).verifyPayment();
+        System.out.println("UPI is online transaction: " + (upi instanceof OnlineTransaction));
 
-        payment = new CardPayment();
-        payment.pay(2500);
-
-        System.out.println("UPI is online transaction: " + (payment instanceof OnlineTransaction));
+        Payment card = new CardPayment();
+        card.pay(2500);
+        System.out.println("Card is online transaction: " + (card instanceof OnlineTransaction));
     }
 }
